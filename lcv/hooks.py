@@ -81,10 +81,13 @@ app_license = "MIT"
 
 doc_events = {
 	"Landed Cost Voucher": {
-		"on_submit": "lcv.lcv.lcv.updateJV",
-		"on_cancel": "lcv.lcv.lcv.cancelJV"
-		}
+		"on_submit" : "lcv.lcv.lcv.updateJV",
+		"on_cancel" : "lcv.lcv.lcv.cancelJV"
+		},
+	"Journal Entry":{
+		"after_insert" : "lcv.lcv.lcv.UpdateLCV"
 	}
+}
 
 # Scheduled Tasks
 # ---------------
