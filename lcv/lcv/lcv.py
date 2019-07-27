@@ -33,9 +33,10 @@ def updateJV(doc,method):
 
 @frappe.whitelist(allow_guest=True)
 def UpdateLCV(doc,method):
-	doc_jv = frappe.get_doc("Landed Cost Voucher", doc.voucher_number)
-	doc_jv.jv = doc.name
-	doc_jv.save()
+	if doc.voucher_number:
+		doc_jv = frappe.get_doc("Landed Cost Voucher", doc.voucher_number)
+		doc_jv.jv = doc.name
+		doc_jv.save()
 
 @frappe.whitelist(allow_guest=True)
 def cancelJV(doc,method):
